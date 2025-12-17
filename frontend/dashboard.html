@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FxWealth | Dashboard</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Welcome, <span id="userName"></span></h1>
+    <h2>Balance: $<span id="balance">0</span></h2>
+
+    <section>
+      <h3>Investments</h3>
+      <div id="investments"></div>
+    </section>
+
+    <section>
+      <h3>Withdrawals</h3>
+      <div id="withdrawals"></div>
+      <input type="number" id="withdrawAmount" placeholder="Amount">
+      <button id="withdrawBtn">Request Withdrawal</button>
+    </section>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
