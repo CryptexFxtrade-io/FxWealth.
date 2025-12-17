@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import API from '../api/api';
 import InvestmentCard from '../components/InvestmentCard';
 import WithdrawalCard from '../components/WithdrawalCard';
+import Navbar from '../components/Navbar';
 
 export default function UserDashboard() {
   const [user, setUser] = useState({});
@@ -37,16 +38,29 @@ export default function UserDashboard() {
 
   return (
     <div>
-      <h1>Welcome, {user.name}</h1>
-      <h2>Balance: ${user.balance}</h2>
+      <Navbar role="user" />
+      <div className="p-6">
+        <h1 className="text-2xl font-bold mb-4">Welcome, {user.name}</h1>
+        <h2 className="text-xl mb-4">Balance: ${user.balance}</h2>
 
-      <h3>Investments</h3>
-      {investments.map(inv => <InvestmentCard key={inv._id} investment={inv} />)}
+        <section className="mb-6">
+          <h3 className="text-lg font-semibold mb-2">Investments</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+            {investments.map(inv => <InvestmentCard key={inv._id} investment={inv} />)}
+          </div>
+        </section>
 
-      <h3>Withdrawals</h3>
-      <input type="number" placeholder="Amount" value={amount} onChange={e => setAmount(e.target.value)} />
-      <button onClick={handleWithdraw}>Request Withdrawal</button>
-      {withdrawals.map(wd => <WithdrawalCard key={wd._id} withdrawal={wd} />)}
+        <section>
+          <h3 className="text-lg font-semibold mb-2">Withdrawals</h3>
+          <div className="flex mb-4">
+            <input type="number" placeholder="Amount" value={amount} onChange={e => setAmount(e.target.value)} className="border p-2 mr-2 rounded" />
+            <button onClick={handleWithdraw} className="bg-blue-600 text-white px-4 py-2 rounded">Request Withdrawal</button>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+            {withdrawals.map(wd => <WithdrawalCard key={wd._id} withdrawal={wd} />)}
+          </div>
+        </section>
+      </div>
     </div>
   );
-             }
+}
