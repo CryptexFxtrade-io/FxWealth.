@@ -1,9 +1,10 @@
 const express = require('express');
 const router = express.Router();
+const User = require('../models/User');
 
-// Example: test route
+// Test route
 router.get('/test', (req, res) => {
   res.json({ message: 'Auth route working' });
 });
-m
-odule.exports = router;
+
+module.exports = router;
