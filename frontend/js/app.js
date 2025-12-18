@@ -1,1 +1,1 @@
-const API_URL = "https://fxwealthtrade.onrender.com/api";
+const API_URL=https://fxwealthtrade.onrender.com/api
